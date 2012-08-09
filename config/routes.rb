@@ -1,4 +1,11 @@
 OgameLike::Application.routes.draw do
+	
+	resources :static_pages
+	resources :users
+	
+	match "signup", to: 'users#new'
+	match "signin", to: 'static_pages#index'
+	
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -48,7 +55,7 @@ OgameLike::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'static_pages#index'
 
   # See how all your routes lay out with "rake routes"
 
