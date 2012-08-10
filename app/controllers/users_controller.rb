@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 	
+	before_filter :signed_in_user, only: [:index, :show, :edit, :update, :destroy]
+	
   def index
   end
   
@@ -14,8 +16,7 @@ class UsersController < ApplicationController
   	@user = User.new(params[:user])
   	if @user.save
   		sign_in @user
-  		flash[:success] = "Welcome to your brand new Head Quarter Amiral!"
-  		redirect_to @user
+  		redirect_to new_planet_path
   	else
   		render 'new'
   	end

@@ -3,6 +3,7 @@ OgameLike::Application.routes.draw do
 	resources :static_pages
 	resources :users
 	resources :sessions
+	resources :planets
 	
 	match "signup", to: 'users#new'
 	match "signin", to: 'sessions#new'

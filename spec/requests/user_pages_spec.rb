@@ -21,7 +21,8 @@ describe "User pages" do
 			describe "after submission" do
 				before {click_button submit}
 				it {should have_selector('h1', text: "Sign up")}
-				it {should have_selector('div#error_explanation', text: "The form contains")}
+				it {should have_selector('div#error_explanation',
+				text: "The form contains")}
 			end
 		end
 		
@@ -40,8 +41,7 @@ describe "User pages" do
 				before {click_button submit}
 				let(:user){User.find_by_email("foo@bar.com")}
 				
-				it {should have_selector('h1', text: "Head quarter")}
-				it {should have_selector('div.alert.alert-success', text: "Welcome")}
+				it {should have_selector('h1', text: "First planet")}
 				it {should have_link('Sign out')}
 			end
 		end	
