@@ -1,6 +1,11 @@
 <% if signed_in? %>
 	<h1><%= "Welcome #{current_user.username}"%></h1>
-	<%= link_to "show planets", planets_path %>
+	<h2>Planets</h2><%= link_to "show planets", planets_path %>
+	<ul>
+		<% current_user.planets.each do |planet| %>
+			<li><%= planet.name %></li>
+		<% end %>
+	</ul>
 <% else %>
 	<h1>Welcome to Ogame-Like</h1>
 	<%= link_to "Sign up", signup_path %>

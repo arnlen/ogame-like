@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120810082525) do
+ActiveRecord::Schema.define(:version => 20120810151835) do
+
+  create_table "buildings", :force => true do |t|
+    t.string   "name"
+    t.integer  "init_price"
+    t.integer  "init_time"
+    t.integer  "level"
+    t.integer  "planet_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "planets", :force => true do |t|
     t.string   "name"

@@ -25,10 +25,11 @@ describe 'Planet pages' do
 		describe "with valid information" do
 			before do
 				visit new_planet_path
-				fill_in "Name", with: "ProximaDuLOL"
+				fill_in "Name", with: "Proxima"
 				click_button "Validate"
+				save_and_open_page
 			end
-			
+
 			it {should have_selector('div.alert.alert-success',
 				text: "Welcome")}
 			it {should have_selector('h1', text: "Planet")}

@@ -33,6 +33,7 @@ group :test do
   gem 'guard-rspec', '~> 1.2.1'
   gem 'spork', '~> 0.9.2'
   #gem 'guard-spork', '~> 0.3.2'
+  gem 'launchy'
 end
 
 group :production do

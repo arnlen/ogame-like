@@ -4,6 +4,33 @@ describe "User pages" do
 	
 	subject {page}
 	
+	describe "Home page" do
+		before {visit root_path}
+	
+		describe "when signed-in" do
+			let(:user){FactoryGirl.create(:user)}
+			
+			before do
+				user.save
+				sign_in user
+				save_and_open_page
+			end
+			
+			let(:planet){Planet.create(
+				name: "Planet",
+				coordinates: "0.0.0.0",
+				metal_ressource: 1000,
+				user_id: user.id)}
+				
+			
+			it {should have_selector('h1',
+				text: user.username)}
+			it {should have_selector('h2',
+				text: "Planets")}
+			it {should have_selector('li')}
+		end
+	end
+	
 	describe "Sign up page" do
 		before {visit signup_path}
 		it {should have_selector('h1', text: "Sign up")}
